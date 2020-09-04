@@ -19,3 +19,5 @@ fmt.Println(owo.Translate("I have no mouth and I must scream", true, true))
 I haz nu mouth and I must scweam
 OwO I haz nu mouth and I must scweam >_<
 ```
+
+[![GoDoc](https://godoc.org/github.com/mnlwldr/owo?status.svg)](https://godoc.org/github.com/mnlwldr/owo)
