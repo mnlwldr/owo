@@ -1,13 +1,12 @@
-package main
+package owo
 
 import (
-	"fmt"
 	"math/rand"
-	"os"
 	"strings"
 	"time"
 )
 
+// Define a prefixes variable as a slice of strings
 var prefixes = []string{
 	"<3 ",
 	"0w0 ",
@@ -20,6 +19,7 @@ var prefixes = []string{
 	"UwU ",
 }
 
+// Define a suffixes variable as a slice of strings
 var suffixes = []string{
 	" ( ͡° ᴥ ͡°)",
 	" (இωஇ )",
@@ -56,19 +56,33 @@ var suffixes = []string{
 	"（＾ｖ＾）",
 }
 
-func main() {
-	if len(os.Args) < 2 {
-		os.Exit(1)
+// Translate the given text. You can set prefix and suffix
+// to true or false, if you want them or not.
+// It returns the translated text
+func Translate(text string, prefix bool, suffix bool) string {
+
+	// Define a concat variable as a slice of strings
+	var concat []string
+
+	// if prefix is set to true add it to the concat slice
+	if prefix {
+		concat = append(concat, prefixes[random(len(prefixes))])
 	}
-	text := strings.Join(os.Args[1:], " ")
-	concat := []string{
-		prefixes[random(len(prefixes))],
-		substitute(text),
-		suffixes[random(len(suffixes))],
+
+	// substitute characters and add the processed string to the concat slice
+	concat = append(concat, substitute(text))
+
+	// if suffix is set to true add it to the concat slice
+	if suffix {
+		concat = append(concat, suffixes[random(len(suffixes))])
 	}
-	fmt.Printf("%s\n", strings.Join(concat, " "))
+
+	// Join the concat slice and return it as a string
+	return strings.Join(concat, " ")
 }
 
+// It replaces characters in the given text
+// It returns the processed string
 func substitute(text string) string {
 	return strings.NewReplacer(
 		"r", "w",
@@ -83,6 +97,7 @@ func substitute(text string) string {
 		"The ", "Da ").Replace(text)
 }
 
+// It returns a random number
 func random(max int) int {
 	return rand.New(rand.NewSource(time.Now().UnixNano())).Intn(max)
 }

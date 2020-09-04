@@ -3,16 +3,19 @@
 
 This is a port of the logic behind @zuzak's JavaScript [OWO](https://github.com/zuzak/owo) into Golang.
 
-## Installation
-```
-git clone https://github.com/mnlwldr/owo.git
+## How to use it
+```go
+import "https://github.com/mnlwldr/owo"
 ```
 
 ## Usage
+```go
+fmt.Println(owo.Translate("I have no mouth and I must scream", false, false))
+fmt.Println(owo.Translate("I have no mouth and I must scream", true, true))
 ```
-$ go run Main.go I have no mouth and I must scream
-OwO I haz nu mouth and I must scweam >_<
 
-$ echo "Better late than never" | xargs go run Main.go 
-Haiiii! Bettew wate than nevew ^-^
+## Output
+```sh
+I haz nu mouth and I must scweam
+OwO I haz nu mouth and I must scweam >_<
 ```
