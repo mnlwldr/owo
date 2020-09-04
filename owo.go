@@ -56,24 +56,24 @@ var suffixes = []string{
 	"（＾ｖ＾）",
 }
 
-// Translate the given text. You can set prefix and suffix
+// Translate the given text. You can set withPrefix and withSuffix
 // to true or false, if you want them or not.
 // It returns the translated text
-func Translate(text string, prefix bool, suffix bool) string {
+func Translate(text string, withPrefix bool, withSuffix bool) string {
 
 	// Define a concat variable as a slice of strings
 	var concat []string
 
-	// if prefix is set to true add it to the concat slice
-	if prefix {
+	// if withPrefix is set to true add it to the concat slice
+	if withPrefix {
 		concat = append(concat, prefixes[random(len(prefixes))])
 	}
 
 	// substitute characters and add the processed string to the concat slice
 	concat = append(concat, substitute(text))
 
-	// if suffix is set to true add it to the concat slice
-	if suffix {
+	// if withSuffix is set to true add it to the concat slice
+	if withSuffix {
 		concat = append(concat, suffixes[random(len(suffixes))])
 	}
 
